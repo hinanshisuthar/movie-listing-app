@@ -6,21 +6,29 @@ const initialState = {
   allMovies: [],
   favorites: [],
   error: "",
+  search: "",
 };
 
-export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
-  try {
-    const response = await getAllMovies();
-    return response.data.results;
-  } catch (err) {
-    console.log(err);
+export const fetchMovies = createAsyncThunk(
+  "movies/fetchMovies",
+  async (search) => {
+    try {
+      const response = await getAllMovies(search);
+      console.log(response.data.results);
+      return response.data.results;
+    } catch (err) {
+      console.log(err);
+    }
   }
-});
+);
 
 const movieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
+    updateSearch: (state, action) => {
+      state.search = action.payload.toLowerCase();
+    },
     addToFavorite: (state, action) => {
       state.favorites = [...state.favorites, action.payload];
     },
@@ -48,4 +56,5 @@ const movieSlice = createSlice({
 });
 
 export default movieSlice.reducer;
-export const { addToFavorite, removeFromFavorite } = movieSlice.actions;
+export const { updateSearch, addToFavorite, removeFromFavorite } =
+  movieSlice.actions;
