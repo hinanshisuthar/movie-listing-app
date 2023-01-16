@@ -17,6 +17,7 @@ export const MovieList = () => {
     timer = setTimeout(() => dispatch(fetchMovies(search)), 1000);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line
   }, [search]);
 
   return (
