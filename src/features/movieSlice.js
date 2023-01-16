@@ -4,6 +4,7 @@ import { getAllMovies } from "../services/movieService";
 const initialState = {
   loading: false,
   allMovies: [],
+  favorites: [],
   error: "",
 };
 
@@ -19,6 +20,18 @@ export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
 const movieSlice = createSlice({
   name: "movie",
   initialState,
+  reducers: {
+    addToFavorite: (state, action) => {
+      state.favorites = [...state.favorites, action.payload];
+    },
+    removeFromFavorite: (state, action) => {
+      let filteredFavs = state.favorites.filter(
+        (movie) => movie.id !== action.payload
+      );
+      console.log(filteredFavs);
+      state.favorites = filteredFavs;
+    },
+  },
   extraReducers: {
     [fetchMovies.pending]: (state) => {
       state.loading = true;
@@ -35,3 +48,4 @@ const movieSlice = createSlice({
 });
 
 export default movieSlice.reducer;
+export const { addToFavorite, removeFromFavorite } = movieSlice.actions;
