@@ -1,0 +1,36 @@
+.nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--primary);
+    color: white;
+}
+
+nav h1 {
+    display: flex;
+    align-items: center;
+}
+
+.input-box {
+    margin: 0 2rem;
+}
+
+.input-box input {
+    outline: transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+    border: 1px transparent;
+    font-size: 1rem;
+}
+
+@media screen and (max-width:670px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .heading {
+        display: flex;
+        flex-direction: column;
+    }
+}
