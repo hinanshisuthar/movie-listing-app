@@ -25,7 +25,7 @@ export const Navbar = () => {
       <div className="input-box">
         <input
           type="text"
-          placeholder="Search movies...(Eg. Avatar)"
+          placeholder="Search movies.(Eg. avatar)"
           value={search}
           onChange={(e) => dispatch(updateSearch(e.target.value))}
         />
