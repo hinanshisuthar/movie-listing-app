@@ -13,3 +13,12 @@
 .icon {
   margin: 8px;
 }
+
+body::-webkit-scrollbar {
+  width: 5px;               
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--light);  
+  border-radius: 5rem;
+}

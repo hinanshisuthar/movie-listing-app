@@ -14,10 +14,9 @@ export const fetchMovies = createAsyncThunk(
   async (search) => {
     try {
       const response = await getAllMovies(search);
-      console.log(response.data.results);
       return response.data.results;
     } catch (err) {
-      console.log(err);
+      console.err(err);
     }
   }
 );
@@ -36,7 +35,6 @@ const movieSlice = createSlice({
       let filteredFavs = state.favorites.filter(
         (movie) => movie.id !== action.payload
       );
-      console.log(filteredFavs);
       state.favorites = filteredFavs;
     },
   },

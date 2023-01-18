@@ -7,8 +7,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import "./movieList.css";
-
-const imgURL = "https://image.tmdb.org/t/p/w500/";
+import { imgURL } from "../../services/movieService";
 
 export const MovieList = () => {
   const { allMovies, search, favorites } = useSelector((state) => state.movie);
@@ -28,7 +27,7 @@ export const MovieList = () => {
       {!allMovies.loading && allMovies.length ? (
         <ul className="movies-list">
           {allMovies.map((movie) => (
-            <li class="card">
+            <li className="card" key={movie.title+movie.poster_path}>
               <div>
                 <img
                   src={imgURL + movie.poster_path}
@@ -36,9 +35,9 @@ export const MovieList = () => {
                   className="img"
                 />
               </div>
-              <div class="headline">
-                <h3 class="h3">{movie.title}</h3>
-                <h5 class="h5">{movie.release_year}</h5>
+              <div className="headline">
+                <h3 className="h3">{movie.title}</h3>
+                <h5 className="h5">{movie.release_year}</h5>
               </div>
               {favorites.find((fav) => fav.id === movie.id) ? (
                 <span

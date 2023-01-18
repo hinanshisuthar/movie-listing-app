@@ -41,7 +41,7 @@
     border: 2px solid var(--primary);
 }
 
-.indicator .icon {
+.indicator .icon, .msg {
     color: var(--light);
 }
 
@@ -87,6 +87,15 @@
     cursor: pointer;
     color: var(--pink);
 }
+
+.fav-list::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+  }
+  
+  .fav-list::-webkit-scrollbar-thumb {
+    background-color: var(--light);    /* color of the scroll thumb */
+    border-radius: 5rem;
+  }
 
 @media screen and (max-width: 670px) {
     .fav-list {

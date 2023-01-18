@@ -19,9 +19,11 @@ export const Favorites = () => {
       </h3>
       {menuOpened && (
         <ul className="fav-list">
-          {favorites.map((fav) => (
-            <FavCard fav={fav} />
-          ))}
+          {!favorites.length > 0 ? (
+            <p className="msg">Add movies to favorite to see them here</p>
+          ) : (
+            favorites.map((fav) => <FavCard fav={fav} />)
+          )}
         </ul>
       )}
     </div>
