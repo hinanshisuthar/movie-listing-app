@@ -8,3 +8,4 @@ Features:
 - The search triggers without entering or search button with a delay of 2 seconds.
 - add, view, and remove movies to favorites. (used Redux)
 - see list of all movies added to favorites
+- responsive
